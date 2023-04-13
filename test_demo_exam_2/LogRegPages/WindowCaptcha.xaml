@@ -1,0 +1,23 @@
+﻿<Window x:Class="test_demo_exam_2.LogRegPages.WindowCaptcha"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:test_demo_exam_2.LogRegPages"
+        mc:Ignorable="d"
+        Title="Captcha" Height="200" Width="300" Icon="/Resources/SystemImages/Logo-mini.png" ResizeMode="NoResize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Style="{StaticResource spMain}" Orientation="Vertical">
+            <TextBlock x:Name="tblCaptcha" Style="{StaticResource tblMain}" Text="" FontFamily="Ink Free"/>
+            <TextBox x:Name="tbCaptcha" Style="{StaticResource tbMain}"/>
+            <Button Style="{StaticResource btnMain}" x:Name="btnSend" Content="Отправить" Click="btnSend_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

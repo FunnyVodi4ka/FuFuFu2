@@ -1,0 +1,82 @@
+﻿<Page x:Class="test_demo_exam_2.MainPages.PageUsers"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:test_demo_exam_2.MainPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageUsers" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Style="{StaticResource spMain}" Grid.Row="0">
+            <StackPanel Style="{StaticResource spMain}" Orientation="Vertical">
+                <TextBlock Text="Поиск" Style="{StaticResource tblMain}" HorizontalAlignment="Left"/>
+                <TextBox x:Name="tbSearch" Style="{StaticResource tbMain}" TextChanged="tbSearch_TextChanged"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource spMain}" Orientation="Vertical">
+                <TextBlock Text="Фильтрация" Style="{StaticResource tblMain}" HorizontalAlignment="Left"/>
+                <ComboBox x:Name="cbFilter" Style="{StaticResource cbMain}" SelectionChanged="cbFilter_SelectionChanged"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource spMain}" Orientation="Vertical">
+                <TextBlock Text="Сортировка" Style="{StaticResource tblMain}" HorizontalAlignment="Left"/>
+                <ComboBox x:Name="cbSort" Style="{StaticResource cbMain}" SelectionChanged="cbSort_SelectionChanged"/>
+            </StackPanel>
+        </StackPanel>
+        <ListView x:Name="listViewUsers" Grid.Row="1" MouseDoubleClick="listViewUsers_MouseDoubleClick">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Height" Value="auto"/>
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="{Binding CorrectImage}" Grid.Column="0"/>
+                        <StackPanel Style="{StaticResource spMain}" Grid.Column="1">
+                            <TextBlock TextWrapping="Wrap" Margin="2">
+                                <Run Text="{Binding Login}"/>
+                            </TextBlock>
+                            <TextBlock TextWrapping="Wrap" Margin="2">
+                                <Run Text="{Binding Email}"/>
+                            </TextBlock>
+                            <TextBlock TextWrapping="Wrap" Margin="2">
+                                <Run Text="{Binding Phone}"/>
+                            </TextBlock>
+                            <TextBlock TextWrapping="Wrap" Margin="2">
+                                <Run Text="{Binding Roles.Name}"/>
+                            </TextBlock>
+                            <TextBlock TextWrapping="Wrap" Margin="2">
+                                <Run Text="{Binding pCost}"/>
+                            </TextBlock>
+                            <TextBlock TextWrapping="Wrap" Margin="2">
+                                <Run Text="{Binding DeteOfBirth, StringFormat='dd.MM.yyyy'}"/>
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Style="{StaticResource spMain}" Grid.Row="2" HorizontalAlignment="Right">
+            <Button Style="{StaticResource btnMain}" x:Name="btnAdd" Content="Добавить" Click="btnAdd_Click"/>
+            <Button Style="{StaticResource btnMain}" x:Name="btnDel" Content="Удалить" Click="btnDel_Click"/>
+            <TextBlock x:Name="tblCounter" Text="Показано: 0 из 0" Style="{StaticResource tblMain}"/>
+        </StackPanel>
+    </Grid>
+</Page>
