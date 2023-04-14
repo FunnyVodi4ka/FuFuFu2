@@ -22,6 +22,7 @@ namespace test_demo_exam_2.MainPages
     public partial class PageUsers : Page
     {
         Verification verification = new Verification();
+        private int pageCounter = 0;
 
         public PageUsers()
         {
@@ -123,6 +124,7 @@ namespace test_demo_exam_2.MainPages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            pageCounter = 0;
             AppConnect.modelDB.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
             listViewUsers.ItemsSource = SortFilterUsers();
         }

@@ -37,6 +37,11 @@
                 <Style TargetType="ListViewItem">
                     <Setter Property="Height" Value="auto"/>
                     <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Login}" Value="1">
+                            <Setter Property="Background" Value="Red"/>
+                        </DataTrigger>
+                    </Style.Triggers>
                 </Style>
             </ListView.ItemContainerStyle>
 
